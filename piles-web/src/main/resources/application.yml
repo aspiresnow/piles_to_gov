@@ -1,0 +1,37 @@
+server:
+  port: 8888
+  max-http-header-size: 10240
+
+spring:
+  mvc:
+    view:
+      prefix: /pages
+      suffix: .html
+  devtools:
+    restart:
+      enabled: false
+      additional-paths: src/main/java
+      exclude: static/**,pages/**
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+  freemarker:
+    prefix:
+    suffix: .html
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html;
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: false
+    request-context-attribute: rc
+    template-loader-path: classpath:/pages/
+  task:
+    execution:
+      pool:
+        max-threads: 16
+        queue-capacity: 100
+        keep-alive: 10s

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>piles_to_gov</artifactId>
+        <groupId>com.piles</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>piles-web</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.piles</groupId>
+            <artifactId>piles-core</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <!--指定为默认-->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profile.id>dev</profile.id>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profile.id>test</profile.id>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profile.id>prod</profile.id>
+            </properties>
+        </profile>
+    </profiles>
+    <build>
+        <filters>
+            <!--指定用于参数替换的配置文件-->
+            <filter>${basedir}/config/common.properties</filter>
+            <!--使用profiles中各个环境不同的文件进行参数替换-->
+            <filter>${basedir}/config/env_${profile.id}.properties</filter>
+        </filters>
+
+        <resources>
+            <!--filtering=true开启属性替换，由于默认是false，需要重新指定一下，资源路径还是默认的路径-->
+            <!--可以指定多个resource节点用于指定需要进行参数替换的文件-->
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <excludes>
+                    <!--排除掉不使用maven进行参数替换的文件-->
+                    <exclude>expicate.xml</exclude>
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
