@@ -8,11 +8,8 @@ var RoleInfoDlg = {
     }
 };
 
-layui.use(['layer', 'form', 'ax'], function () {
+layui.use(['layer', 'form', 'ax'], function (layer,form,$ax) {
     var $ = layui.jquery;
-    var $ax = layui.ax;
-    var form = layui.form;
-    var layer = layui.layer;
 
     // 让当前iframe弹层高度适应
 

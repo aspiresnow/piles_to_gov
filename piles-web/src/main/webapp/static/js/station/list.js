@@ -75,11 +75,10 @@ layui.use(['layer', 'form', 'table', 'ax'], function (layer, form, table, $ax) {
         elem: '#' + DataStore.tableId,
         url: DataStore.pageUrl,
         page: true,
-        height: "full-158",
+        // height: "full-158",
         cellMinWidth: 100,
         cols: DataStore.initColumn()
     });
-    debugger
     table.on('tool(' + DataStore.tableId + ')', function (obj) {
         debugger
         var data = obj.data;

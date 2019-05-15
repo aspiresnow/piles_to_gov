@@ -18,7 +18,7 @@ public class StationServiceImpl implements IStationService {
     @Override
     public List<Station> getStationList() {
         List<Station> result = Lists.newArrayList();
-        for(int i = 0;i<50;i++){
+        for(int i = 0;i<5;i++){
             Station station = new Station();
             station.setId(i);
             station.setName("name" + i);
