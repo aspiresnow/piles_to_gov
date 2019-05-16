@@ -2,7 +2,7 @@ package com.piles.web.config;
 
 import com.alibaba.fastjson.JSON;
 import com.piles.sdk.entity.CommonResponse;
-import com.piles.web.exception.PileException;
+import com.piles.core.exception.PileException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.MethodParameter;

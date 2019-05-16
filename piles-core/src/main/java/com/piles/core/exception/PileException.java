@@ -1,7 +1,12 @@
-package com.piles.web.exception;
+package com.piles.core.exception;
 
 import lombok.Data;
 
+/**
+ * @Auther: zhanglizhi
+ * @Date: 2019/5/16 13:52
+ * @Description:
+ */
 @Data
 public class PileException extends RuntimeException {
 

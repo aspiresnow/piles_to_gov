@@ -1,4 +1,4 @@
-package com.piles.web.util;
+package com.piles.core.util;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
