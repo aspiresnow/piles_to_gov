@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class TestTask {
  
     // 定义每过3秒执行任务
-    @Scheduled(fixedRate = 3000)
+//    @Scheduled(fixedRate = 3000)
     public void reportCurrentTime() {
         log.info("time is :{}", LocalDateTime.now());
     }

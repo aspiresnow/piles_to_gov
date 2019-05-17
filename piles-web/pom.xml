@@ -96,11 +96,23 @@
             <!--可以指定多个resource节点用于指定需要进行参数替换的文件-->
             <resource>
                 <directory>${basedir}/src/main/resources</directory>
-                <excludes>
-                    <!--排除掉不使用maven进行参数替换的文件-->
-                    <exclude>expicate.xml</exclude>
-                </excludes>
                 <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.eot</exclude>
+                    <exclude>**/*.svg</exclude>
+                    <exclude>**/*.ttf</exclude>
+                    <exclude>**/*.woff</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*.eot</include>
+                    <include>**/*.svg</include>
+                    <include>**/*.ttf</include>
+                    <include>**/*.woff</include>
+                </includes>
             </resource>
         </resources>
     </build>

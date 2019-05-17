@@ -23,7 +23,7 @@ public class StationServiceImpl implements IStationService {
         StopWatch stopWatch = new StopWatch("查询列表");
         stopWatch.start("调用远程查询数据");
         List<Station> result = Lists.newArrayList();
-        for(int i = 0;i<50;i++){
+        for(int i = 0;i<5;i++){
             Station station = new Station();
             station.setId(i);
             station.setName("name" + i);

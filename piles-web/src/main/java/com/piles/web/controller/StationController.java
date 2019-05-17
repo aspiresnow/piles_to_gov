@@ -1,32 +1,20 @@
-/**
- * Copyright 2018-2020 stylefeng & fengshuonan (https://gitee.com/stylefeng)
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.piles.web.controller;
 
 import com.piles.sdk.entity.BaseQueryParam;
 import com.piles.sdk.entity.CommonResponse;
 import com.piles.sdk.entity.Station;
 import com.piles.web.service.IStationService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api(value = "用户相关的接口", tags = "station")
 @Controller
 @RequestMapping("/station")
 public class StationController {
@@ -35,13 +23,13 @@ public class StationController {
     private IStationService stationService;
     private String PREFIX = "station/";
 
-    @RequestMapping({"", "/", "/list"})
+    @GetMapping({"", "/", "/list"})
     public String list() {
         //return LayuiPageFactory.createPageInfo(warpper);
         return PREFIX + "list";
     }
 
-    @RequestMapping({"queryForPage"})
+    @GetMapping({"queryForPage"})
     @ResponseBody
     public CommonResponse queryForPage(BaseQueryParam queryParam) {
         List<Station> stationList = stationService.getStationList();
@@ -50,28 +38,36 @@ public class StationController {
         return commonResponse;
     }
 
-    @RequestMapping("/add")
+    @GetMapping("/add")
     public String test() {
         return PREFIX + "add";
     }
 
-    @RequestMapping("/edit")
+    @GetMapping("/edit")
     public String edit() {
         return PREFIX + "edit";
     }
 
-    @RequestMapping("/detail")
+    @GetMapping("/detail")
     public String detail() {
         return PREFIX + "detail";
     }
 
-    @RequestMapping("/save")
+    @ApiOperation(value = "添加", notes = "")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "station", value = "用户信息", required = true, dataType = "Station"),
+    })
+    @PostMapping("/save")
     @ResponseBody
-    public CommonResponse save() {
+    public CommonResponse save(Station station) {
         return CommonResponse.success();
     }
 
-    @RequestMapping("/delete/{id}")
+    @ApiOperation(value = "删除", notes = "")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "id", required = true, dataType = "int", paramType = "path"),
+    })
+    @DeleteMapping("/delete/{id}")
     @ResponseBody
     public CommonResponse delete(@PathVariable int id) {
         return CommonResponse.success();

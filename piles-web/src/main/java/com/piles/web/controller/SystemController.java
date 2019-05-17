@@ -13,11 +13,15 @@ public class SystemController {
 
     @RequestMapping({"","/","/index"})
     public String index(){
-        return "system/index";
+        return "index";
     }
 
     @RequestMapping({"/main"})
     public String main(){
         return "system/main";
+    }
+    @RequestMapping({"/welcome"})
+    public String home(){
+        return "system/welcome";
     }
 }

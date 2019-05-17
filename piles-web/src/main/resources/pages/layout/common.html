@@ -1,0 +1,32 @@
+<#macro includeCommonCss>
+	<link rel="stylesheet" href="/common/layui/css/layui.css">
+	<link rel="stylesheet" href="/common/module/admin.css">
+</#macro>
+<#macro includeCommonJs>
+	<script src="/common/layui/layui.js"></script>
+	<script src="/common/js/common.js"></script>
+	<script src="/common/plugins/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/common/plugins/ztree/jquery.ztree.all.min.js"></script>
+<!--
+	<script src="/plugins/jquery/jquery-3.2.1.min.js"></script>
+-->
+</#macro>
+<#macro breadcrumb crumbList>
+	<div style="margin:15px; ">
+		<span class="layui-breadcrumb">
+			<#list crumbList as item>
+				<#if item?is_last>
+					<a href="${item.href!''}">
+						<cite>
+							${item.title!''}
+						</cite>
+					</a>
+				<#else>
+					<a href="${item.href!''}">
+						${item.title!''}
+					</a>
+				</#if>
+			</#list>
+		</span>
+	</div>
+</#macro>

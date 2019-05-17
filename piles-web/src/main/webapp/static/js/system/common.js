@@ -1,4 +1,3 @@
-// 用common.js必须加上Feng.addCtx("${ctxPath}");
 var System = {};
 System.info = function (info) {
     top.layer.msg(info, {icon: 6});
