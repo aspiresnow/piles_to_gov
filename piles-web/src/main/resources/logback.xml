@@ -4,7 +4,7 @@
     <!--必须在application.yml中设置项目名 spring.application.name -->
     <springProperty name="PROJECT_NAME" source="spring.application.name"></springProperty>
     <property name="LOGGER_LEVEL" value="INFO"/>
-    <property name="LOG_HOME" value="/opt/logs/${PROJECT_NAME}"/>
+    <property name="LOG_HOME" value="${PROJECT_NAME}"/>
     <property name="PROJECT_NAME" value="${PROJECT_NAME}"/>
     <property name="ERROR_LOG" value="${PROJECT_NAME}-error"/>
 
@@ -36,6 +36,8 @@
     </appender>
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
+<!--
         <appender-ref ref="FILE"/>
+-->
     </root>
 </configuration>

@@ -24,4 +24,12 @@ public class SystemController {
     public String home(){
         return "system/welcome";
     }
+    @RequestMapping({"/chpwd"})
+    public String chpwd(){
+        return "system/chpwd";
+    }
+    @RequestMapping({"/logout"})
+    public String logout(){
+        return "system/login";
+    }
 }

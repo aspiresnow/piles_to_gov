@@ -75,12 +75,12 @@ layui.use(['layer', 'form', 'table', 'ax'], function (layer, form, table, $ax) {
         elem: '#' + DataStore.tableId,
         url: DataStore.pageUrl,
         page: true,
-        height: "full-158",
+        height: "full-115",
+        // height: "full-158",
         cellMinWidth: 100,
         cols: DataStore.initColumn()
     });
     table.on('tool(' + DataStore.tableId + ')', function (obj) {
-        debugger
         var data = obj.data;
         var layEvent = obj.event;
         if (layEvent === 'edit') {
