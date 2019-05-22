@@ -1,6 +1,7 @@
 package com.piles.core.util;
 
 import okhttp3.*;
+import okhttp3.Request;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
